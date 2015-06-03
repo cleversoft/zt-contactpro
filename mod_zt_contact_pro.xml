@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6.0" client="site" method="upgrade">
+    <name>ZT Contact Pro</name>
+    <author>ZooTemplate</author>
+    <creationDate>October 01, 2013</creationDate>
+    <copyright>Copyright (C) 2008 - 2013 http://www.zootemplate.com. All rights reserved.</copyright>
+    <license>GNU/GPL</license>	
+    <authorEmail>support@zootemplate.com</authorEmail>
+    <authorUrl>www.zootemplate.com</authorUrl>
+    <version>1.1.0</version>
+    <description>ZT_INSTALLATION</description>
+    <files>
+        <filename module="mod_zt_contact_pro">mod_zt_contact_pro.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>ajax.php</filename>
+        <folder>assets</folder>
+        <folder>elements</folder>
+        <folder>tmpl</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">en-GB.mod_zt_contact_pro.ini</language>
+    </languages>  
+    <config addfieldpath="/modules/mod_zt_contact_pro/elements/">
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="email" type="text" size="30" default="demo@zootemplate.com" label="Email" description="EMAIL"/>
+                <field name="subject" type="text" size="30" default="ZooTemplate.com" label="Subject mail" description="SUBJECTMAIL"/>
+                <field name="success" type="text" size="60" default="Your contact form has been submitted, we will get back to you soon!" label="Notice Sendmail Success" description="SUCCESS"/>
+                <field name="unsuccess" type="text" size="60" default="Contact form submission has been error! Please try again later!" label="Notice Sendmail Unsuccess" description="UNSUCCESS"/>
+                <field name="redirect" type="text" size="60" default="" label="Thank you page url" description="REDIRECTURL"/>
+                <field name="formmail" type="textarea" rows="15" cols="60" default="{name:title}:{name:value}\n{email:title}:{email:value}\n{address:title}:{address:value}\n{message:title}:{message:value}" label="Form Mail" description="FORMMAIL" />
+            </fieldset>
+            <fieldset name="FORM_FIELD">
+                <field name="item" type="item" default="" label="Add items" description="ADDITEM" />
+            </fieldset>
+            <fieldset name="captcha">
+                <field name="typecaptcha" type="typecaptcha" default="" label="Type Captcha" description="TYPECAPTCHA" />
+
+                <field name="recapcha" type="radio" class="btn-group btn-group-yesno" default="1" label="Display Recapcha" description="DISPLAYRECAPCHA">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="publickey" type="text" size="60" default="6LeJ070SAAAAAMgcNly98cGGcDuYQjkm-mpVtrZS" label="Public Key" description="publickey"/>
+                <field name="privatekey" type="text" size="60" default="6LeJ070SAAAAANQu6i66pftCAcNNaAgFWL_5CfCl" label="Private Key" description="privatekey"/>
+                <field name="captcha" type="radio" class="btn-group btn-group-yesno" default="1" label="Display Captcha" description="Display Captcha">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="title_captcha" type="text" size="60" default="Do the math" label="TITLECAPTCHA" description="TITLECAPTCHA"/>
+                <field name="spacer1" type="spacer" class="text" label="Arithmetic actions for CAPTCHA" />
+                <field name="cptch_math_action_plus" class="btn-group btn-group-yesno" type="radio" default="1" label="Plus (+)" description="ACTIONPLUS">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="cptch_math_action_minus" class="btn-group btn-group-yesno" type="radio" default="1" label="Minus (−)" description="ACTIONMINUS">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="cptch_math_action_increase" class="btn-group btn-group-yesno" type="radio" default="1" label="Multiplication (×)" description="ACTIONINCREASE">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="spacer2" type="spacer" class="text" label="CAPTCHA complexity level" />
+                <field name="cptch_difficulty_number" class="btn-group btn-group-yesno" type="radio" default="1" label="Numbers" description="LEVELNUMBER">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="cptch_difficulty_word" class="btn-group btn-group-yesno" type="radio" default="1" label="Words" description="LEVELWORDS">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+                <field name="cache" type="list" default="1" label="Caching" description="CACHEMODULE">
+                    <option value="1">Use global</option>
+                    <option value="0">No caching</option>
+                </field>
+                <field name="cache_time" type="text" default="900" label="Cache Time" description="CACHETIME" />
+            </fieldset>
+        </fields> 
+    </config> 
+</extension>

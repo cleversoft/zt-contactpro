@@ -1,0 +1,65 @@
+div.ztmove {
+	width: 100%;
+	overflow: hidden;
+	background: #f1f1f1;
+	height: 20px;
+	padding: 6px 0 0 5px;
+}
+div.ztmove h2 {
+	float: left;
+	padding: 0px;
+	margin: 0px 10px 0 0;
+	font-size: 11px;
+    line-height: 12px;
+}
+span.jv-iconmover {
+	background: url(../images/icon-mover.gif) left -2px no-repeat;
+	text-indent: -999px;
+	padding: 8px;
+	float: right;
+	padding-right: 15px;
+	overflow: hidden;
+}
+span.jv-iconmover input {
+	display: none;
+}
+div.jvfieldcontact {
+	float: left;
+	width: 100%;
+	display: block;
+}
+table.adminform {
+	float: left;
+	width: 100%;
+}
+div#zt_drapdrop {
+	float: left;
+	overflow: hidden;
+    width: 55%;
+}
+div#zt_drapdrop table td {
+	padding: 2px 8px 0 7px !important;
+}
+div#vehicles_list {
+	width: 100%;
+	float: left;
+}
+label#jform_params_item-lbl {
+	display: none;
+}
+div#jvmaincontact input {
+	float: none;
+}
+.formhidden {
+	display: none;
+}
+#attrib-FORM_FIELD .control-label {
+    display: none;
+}
+#attrib-FORM_FIELD .controls {
+    margin: 0;
+}
+.controls .zt-container .btn-group.btn-group-yesno > .btn {
+    min-width: 20px;
+    padding: 2px 12px;
+}

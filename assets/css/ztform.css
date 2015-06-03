@@ -1,0 +1,81 @@
+.myForm {
+}
+
+.myForm p {
+	margin-bottom: 5px;
+	float: left;
+	width: 100%;
+}
+
+.myForm label {
+	width: 100%;
+	float: left;
+}
+
+.myForm input, .myForm textarea, .myForm select {
+	border: 1px solid #cac9b9;
+}
+.myForm input.error,
+.myForm textarea.error {
+    border: 1px solid red;
+}
+.myForm label.error {
+    color: red;
+    font-weight: normal;
+}
+.myForm select {
+	width: 100%;
+	float: left;
+}
+.myForm label.title-cpt {
+    display: block;
+    font-weight: bold;
+    float: left; 
+    width: 100%;
+}
+.myForm .red {
+	border: 1px solid red;
+}
+
+.myForm label.red {
+	border: none;
+	color: red;
+}
+
+.myForm .customRed {
+	border: none;
+	color: red;
+}
+
+.myForm #submit {
+	margin-left: 100px;
+}
+
+#validationMessage {
+	padding: 5px;
+	/*background-color: #eee;*/
+	border: 1px solid red;
+	margin-bottom: 10px;
+	color: red;
+	font-weight: bold;
+	display: none;
+}
+
+.myForm .errorMessage {
+	color: red;
+	margin-left: 10px;
+	font-size: 0.8em;
+}
+div#vehicles_list {
+	color: red;
+	font-size: 13px;
+	padding-bottom: 6px;
+}
+#recaptcha_widget_div {
+	float: left;
+}
+.myForm .loading {
+        background: url(../images/loading.gif) no-repeat top;
+    width: 100%;;
+    height: 19px;
+}

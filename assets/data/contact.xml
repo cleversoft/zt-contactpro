@@ -1,0 +1,56 @@
+<contact version="1" xmlns="http://xspf.org/ns/0/">
+    <elementList>
+
+        <param>
+
+            <type>textfield</type>
+
+            <fieldtitle>Name</fieldtitle>
+
+            <fieldname>name</fieldname>
+
+            <valid>1</valid>
+            <size>30</size>
+            <length>30</length>
+        </param>
+
+        <param>
+
+            <type>textfield</type>
+
+            <fieldtitle>Email</fieldtitle>
+
+            <fieldname>email</fieldname>
+
+            <valid>1</valid>
+            <size>30</size>
+            <length>30</length>
+        </param>
+
+        <param>
+
+            <type>textfield</type>
+
+            <fieldtitle>Address</fieldtitle>
+
+            <fieldname>address</fieldname>
+
+            <valid>0</valid>
+            <size>30</size>
+            <length>30</length>
+        </param>
+
+        <param>
+
+            <type>textarea</type>
+
+            <fieldtitle>Message</fieldtitle>
+
+            <fieldname>message</fieldname>
+
+            <valid>0</valid>
+            <cols>30</cols>
+            <rows>5</rows>
+        </param>
+    </elementList>
+</contact>
