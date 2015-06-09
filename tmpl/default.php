@@ -22,12 +22,7 @@ $username = $user->name;
 $useremail = $user->email;
 $error = Null;
 ?>
-<script type="text/javascript">
-    var RecaptchaOptions = {
-        theme: "white",
-        lang: "en"
-    };
-</script>
+
 <div style="display: none;"><a href="http://www.joomvision.com" title="Joomla Templates">Joomla Templates</a> and Joomla Extensions by JoomVision.Com</div>
 <div id="zt_contact_pro_<?php echo $module_id; ?>" class="jvformcontact<?php echo $params->get('moduleclass_sfx') ?>">
     <form id='myForm' class="myForm" action="index.php" method="post">
@@ -205,38 +200,3 @@ $error = Null;
         <input type="hidden" name="redirect" id="redirect" value="<?php echo $urlRedirect; ?>"/>
     </form>
 </div>
-<script type="text/javascript">
-    jQuery.noConflict();
-    jQuery(function ($) {
-        var v = $("#myForm").validate({
-            submitHandler: function (form) {
-                var mainform = $(".main-success");
-                var log = $('#vehicles_list').addClass('loading');
-                var url = '<?php echo JURI::root(); ?>modules/mod_zt_contact_pro/ajax.php';
-                var data = $('#myForm').serialize();
-                $.ajax({
-                    url: url,
-                    dataType: 'json',
-                    data: data,
-                    type: 'post',
-                    success: function (data) {
-                        if (data.status == 'unsuccess') {
-                            log.removeClass('loading');
-                            log.html(data.message);
-                            if ($('#check').val() > 0) {
-                                Recaptcha.reload();
-                            }
-                        } else {
-                            log.remove();
-                            mainform.html(data.message);
-                        }
-                        checkurl = $('#redirect').val();
-                        if (checkurl != '') {
-                            window.location = checkurl;
-                        }
-                    }
-                });
-            }
-        });
-    });
-</script>
