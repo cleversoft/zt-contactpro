@@ -99,55 +99,7 @@ class JFormFieldItem extends JFormField
         $text = "Text";
         $options[] = JHTML::_('select.option', $val, JText::_($text));
         ?>
-        <script type="text/javascript">
-            window.addEvent('domready', function () {
-        <?php
-        if (CONTACT_JVERSION == 30)
-        {
-            ?>
-                    save = $$('div#toolbar-save button');
-                    apply = $$('div#toolbar-apply button');
-        <?php }
-        ?>
-                save.addEvent('click', function () {
-                    $('vehicles_list').scrollTo(0, 0);
-                    window.scrollTo(0, 0);
-                    new Request.HTML({
-                        url: '<?php echo $ajax; ?>',
-                        data: $('module-form'),
-                        method: 'post',
-                        update: 'vehicles_list',
-                        onComplete: function (el) {
-                            submitbutton1('apply');
-                        }
-                    }).send();
-                });
-                apply.addEvent('click', function (el) {
-                    $('vehicles_list').scrollTo(0, 0);
-                    window.scrollTo(0, 0);
-                    new Request.HTML({
-                        url: '<?php echo $ajax; ?>',
-                        data: $('module-form'),
-                        method: 'post',
-                        update: 'vehicles_list',
-                        onComplete: function (el) {
-                            submitbutton1('apply');
-                        }
-                    }).send();
-                });
-            });
-            function submitbutton(pressbutton) {
-                var form = document.adminForm;
-                if (pressbutton == 'cancel') {
-                    submitform(pressbutton);
-                    return;
-                }
-            }
-            function submitbutton1(pressbutton) {
-                var form = document.adminForm;
-                submitform(pressbutton);
-            }
-        </script>
+       
         <?php
         $html = '<div id="vehicles_list"></div>';
 
