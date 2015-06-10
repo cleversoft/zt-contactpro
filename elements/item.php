@@ -69,7 +69,8 @@ class JFormFieldItem extends JFormField
         $elementlist = count($xml->elementList->param);
         /* Load mootools if is not loaded */
         $this->_loadMooTools();
-        $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/zt_dropdrap.js');
+        $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/vendor/jquery-ui/jquery-ui.min.js');
+        $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/scripts.js');
         if (CONTACT_JVERSION == 30)
         {
             $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/fieldtype30.js');
@@ -160,7 +161,7 @@ class JFormFieldItem extends JFormField
             $checkproperty = $xml->elementList->param[$i]->type;
             $control_name = 'element[' . $i . ']';
             $control_name_field = 'element' . $i . 'required';
-            $html .= '<table width="30%" cellspacing="0" cellpadding="0" border="0" class="adminform" id="fileType_' . $i . '">
+            $html .= '<div class="sortable-item"><table width="30%" cellspacing="0" cellpadding="0" border="0" class="adminform" id="fileType_' . $i . '">
 								<thead width="30%">
 								   <tr>
 								   	<td colspan="3">
@@ -285,7 +286,7 @@ class JFormFieldItem extends JFormField
 								    </tr>';
             }
             $html .= '</tbody>
-						</table>';
+						</table></div>';
         }
         $orderfield = '';
         $checklist = $elementlist - 1;
