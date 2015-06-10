@@ -4,7 +4,9 @@
         console.log('jQuery was not loaded.');
     }
     $(document).ready(function(){
-        $('#jvmaincontact').sortable();
+        $('#jvmaincontact').sortable({
+            forcePlaceholderSize: true,
+        });
     });
 
     
