@@ -67,8 +67,6 @@ class JFormFieldItem extends JFormField
             $xml = simplexml_load_file($api_url);
         }
         $elementlist = count($xml->elementList->param);
-        /* Load mootools if is not loaded */
-        $this->_loadMooTools();
         $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/vendor/jquery-ui/jquery-ui.min.js');
         $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/scripts.js');
         if (CONTACT_JVERSION == 30)
@@ -101,40 +99,35 @@ class JFormFieldItem extends JFormField
         $options[] = JHTML::_('select.option', $val, JText::_($text));
         ?>
         <script type="text/javascript">
-            window.addEvent('domready', function () {
+            jQuery(document).ready(function () {
         <?php
         if (CONTACT_JVERSION == 30)
         {
             ?>
-                    save = $$('div#toolbar-save button');
-                    apply = $$('div#toolbar-apply button');
+                    $save = jQuery('div#toolbar-save button');
+                    $apply = jQuery('div#toolbar-apply button');
         <?php }
         ?>
-                save.addEvent('click', function () {
-                    $('vehicles_list').scrollTo(0, 0);
-                    window.scrollTo(0, 0);
-                    new Request.HTML({
+                $save.on('click', function () {
+                    console.log(jQuery('#module-form').serialize());
+                    jQuery.ajax({
                         url: '<?php echo $ajax; ?>',
-                        data: $('module-form'),
+                        data: jQuery('#module-form').serialize(),
                         method: 'post',
-                        update: 'vehicles_list',
-                        onComplete: function (el) {
-                            submitbutton1('apply');
-                        }
-                    }).send();
+                        update: 'vehicles_list'
+                    }).done(function(){
+                        submitbutton1('apply');
+                    });
                 });
-                apply.addEvent('click', function (el) {
-                    $('vehicles_list').scrollTo(0, 0);
-                    window.scrollTo(0, 0);
-                    new Request.HTML({
+                $apply.on('click', function (el) {
+                    jQuery.ajax({
                         url: '<?php echo $ajax; ?>',
-                        data: $('module-form'),
+                        data: jQuery('#module-form').serialize(),
                         method: 'post',
-                        update: 'vehicles_list',
-                        onComplete: function (el) {
-                            submitbutton1('apply');
-                        }
-                    }).send();
+                        update: 'vehicles_list'
+                    }).done(function(){
+                        submitbutton1('apply');
+                    });
                 });
             });
             function submitbutton(pressbutton) {
@@ -314,16 +307,7 @@ class JFormFieldItem extends JFormField
 			     <input type="hidden" value="' . $cId . '" name="module_id">
 			     <input type="hidden" value="' . $elementlist . '" id="countType" name="countType">
 			     <input type="hidden" name="fieldorder" value="' . $orderfield . '" id="fieldorder" />
-				</div>
-			<script type="text/javascript">
-		    window.addEvent("load", function(){
-				if (typeof ZTdrapdrop != \'undefined\') {
-					new ZTdrapdrop(
-						$$("#zt_drapdrop .zt-container"),{classmove: \'.ztmove\'})
-				};
-			});
-		</script>
-		';
+				</div>';
         return $html;
     }
 

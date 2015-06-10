@@ -53,41 +53,41 @@ class JFormFieldTypecaptcha extends JFormFieldList
         ?>
 
         <script type="text/javascript">
-            window.addEvent('load', function () {
+            jQuery(window).on('load', function () {
         <?php
         if (CONTACT_JVERSION == 30)
         {
             ?>
-                    var Recaptcha = $('jform_params_recapcha').getParent().getParent();
+                    var Recaptcha = jQuery('#jform_params_recapcha').parent().parent();
                     for (i = 0; i <= 2; i++) {
                         Recaptcha.addClass('recaptcha');
-                        Recaptcha = Recaptcha.getNext();
+                        Recaptcha = Recaptcha.next();
                     }
-                    var Captcha = $('jform_params_captcha').getParent().getParent();
+                    var Captcha = jQuery('jform_params_captcha').parent().parent();
                     for (i = 0; i <= 8; i++) {
                         Captcha.addClass('captcha');
-                        Captcha = Captcha.getNext();
+                        Captcha = Captcha.next();
                     }
         <?php } ?>
-                var zt_recaptcha = $$('.recaptcha');
-                var zt_captcha = $$('.captcha');
+                var zt_recaptcha = jQuery('.recaptcha');
+                var zt_captcha = jQuery('.captcha');
                 var layout = "<?php echo $layoutStyle; ?>";
                 var selectStyle = function (style) {
                     switch (style) {
                         case "recaptcha":
                             zt_recaptcha.each(function (item) {
-                                item.setStyle('display', '');
+                                jQuery(item).css('display', '');
                             });
                             zt_captcha.each(function (item) {
-                                item.setStyle('display', 'none');
+                                jQuery(item).css('display', 'none');
                             });
                             break;
                         case "captcha":
                             zt_recaptcha.each(function (item) {
-                                item.setStyle('display', 'none');
+                                jQuery(item).css('display', 'none');
                             });
                             zt_captcha.each(function (item) {
-                                item.setStyle('display', '');
+                                jQuery(item).css('display', '');
                             });
                             break;
                     }
