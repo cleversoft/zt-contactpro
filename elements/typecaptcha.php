@@ -52,7 +52,59 @@ class JFormFieldTypecaptcha extends JFormFieldList
         $options[] = JHTML::_('select.option', $val, JText::_($text));
         ?>
 
-      
+        <script type="text/javascript">
+            window.addEvent('load', function () {
+        <?php
+        if (CONTACT_JVERSION == 30)
+        {
+            ?>
+                    var Recaptcha = $('jform_params_recapcha').getParent().getParent();
+                    for (i = 0; i <= 2; i++) {
+                        Recaptcha.addClass('recaptcha');
+                        Recaptcha = Recaptcha.getNext();
+                    }
+                    var Captcha = $('jform_params_captcha').getParent().getParent();
+                    for (i = 0; i <= 8; i++) {
+                        Captcha.addClass('captcha');
+                        Captcha = Captcha.getNext();
+                    }
+        <?php } ?>
+                var zt_recaptcha = $$('.recaptcha');
+                var zt_captcha = $$('.captcha');
+                var layout = "<?php echo $layoutStyle; ?>";
+                var selectStyle = function (style) {
+                    switch (style) {
+                        case "recaptcha":
+                            zt_recaptcha.each(function (item) {
+                                item.setStyle('display', '');
+                            });
+                            zt_captcha.each(function (item) {
+                                item.setStyle('display', 'none');
+                            });
+                            break;
+                        case "captcha":
+                            zt_recaptcha.each(function (item) {
+                                item.setStyle('display', 'none');
+                            });
+                            zt_captcha.each(function (item) {
+                                item.setStyle('display', '');
+                            });
+                            break;
+                    }
+                    ;
+                }
+                selectStyle(layout);
+        <?php
+        if (CONTACT_JVERSION == 30)
+        {
+            ?>
+                    jQuery('#jform_params_typecaptcha').change('change', function () {
+                        selectStyle(this.value);
+                    });
+        <?php }
+        ?>
+            });
+        </script>
         <?php
         return $options;
     }

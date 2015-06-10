@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="1.6.0" client="site" method="upgrade">
     <name>ZT Contact Pro</name>
-    <author>ZooTemplate</author>
-    <creationDate>October 01, 2013</creationDate>
-    <copyright>Copyright (C) 2008 - 2013 http://www.zootemplate.com. All rights reserved.</copyright>
+    <author>ZooTemplate.Com</author>
+    <creationDate>Jun 09, 2015</creationDate>
+    <copyright>Copyright (C) 2008 - 2015 http://www.zootemplate.com. All rights reserved.</copyright>
     <license>GNU/GPL</license>	
-    <authorEmail>support@zootemplate.com</authorEmail>
+    <authorEmail>joomla.cleversfot@gmail.com</authorEmail>
     <authorUrl>www.zootemplate.com</authorUrl>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <description>ZT_INSTALLATION</description>
     <files>
         <filename module="mod_zt_contact_pro">mod_zt_contact_pro.php</filename>
