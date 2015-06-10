@@ -75,7 +75,7 @@ class JFormFieldItem extends JFormField
         {
             $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/fieldtype30.js');
         }
-        //$doc->addStyleSheet(JUri::root() . 'modules/mod_zt_contact_pro/assets/css/adminformcss.css');
+        $doc->addStyleSheet(JUri::root() . 'modules/mod_zt_contact_pro/assets/css/adminformcss.css');
         $ajax = JURI::root() . "modules/mod_zt_contact_pro/elements/ajax.php";
         $options = array();
         $val = '';
