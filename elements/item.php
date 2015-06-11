@@ -154,7 +154,9 @@ class JFormFieldItem extends JFormField
             $checkproperty = $xml->elementList->param[$i]->type;
             $control_name = 'element[' . $i . ']';
             $control_name_field = 'element' . $i . 'required';
-            $html .= '<div class="sortable-item"><table width="30%" cellspacing="0" cellpadding="0" border="0" class="adminform" id="fileType_' . $i . '">
+            $html .= '<div class="sortable-item">'
+                    . '<input type="hidden" name="order[]" id="zt-contact-order" value="' . $i . '" data-order="'. $i .'">'
+                    . '<table width="30%" cellspacing="0" cellpadding="0" border="0" class="adminform" id="fileType_' . $i . '">
 								<thead width="30%">
 								   <tr>
 								   	<td colspan="3">
@@ -170,10 +172,8 @@ class JFormFieldItem extends JFormField
             $html .='</td>
 										<td class="ps" align="left" width="55%"><a class="btn active btn-success" href="javascript:newFieldtype(' . $i . ');">Add Field</a>
 										';
-            if ($i > 0)
-            {
-                $html .= '| <a id="deletepro' . $i . '" class="btn active btn-danger" href="javascript:deleteFieldtype(' . $i . ')">Delete Field</a> ';
-            }
+            $html .= '| <a id="deletepro' . $i . '" class="btn active btn-danger" href="javascript:deleteFieldtype(' . $i . ')">Delete Field</a> ';
+
             if ($xml->elementList->param[$i]->type != 'textfield' && $xml->elementList->param[$i]->type != 'textarea' && $xml->elementList->param[$i]->type != 'text')
             {
                 $html .= '| <a id="newpro' . $i . '" class="btn active btn-success" href="javascript:newValue(' . $i . ');">New value</a>';
@@ -279,7 +279,8 @@ class JFormFieldItem extends JFormField
 								    </tr>';
             }
             $html .= '</tbody>
-						</table></div>';
+						</table>
+                                                </div>';
         }
         $orderfield = '';
         $checklist = $elementlist - 1;
