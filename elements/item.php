@@ -166,7 +166,7 @@ class JFormFieldItem extends JFormField
 										<td align="left" width="35%">';
             $html .=@JHTML::_('select.genericlist', $options, '' . $control_name . '[type]', 'onchange="changeElement(' . $i . ', value);"', 'value', 'text', $checkproperty, $control_name);
             $html .='</td>
-										<td class="ps" align="left" width="55%"><a class="btn active btn-success" href="javascript:newFieldtype(' . $i . ');">Add Field</a>
+										<td class="ps" align="left" width="55%"><a class="btn active btn-success" href="javascript:ztcontact.addField();">Add Field</a>
 										';
             $html .= '| <a id="deletepro' . $i . '" class="btn active btn-danger" href="javascript:deleteFieldtype(' . $i . ')">Delete Field</a> ';
 
