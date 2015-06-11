@@ -69,10 +69,6 @@ class JFormFieldItem extends JFormField
         $elementlist = count($xml->elementList->param);
         $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/vendor/jquery-ui/jquery-ui.min.js');
         $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/scripts.js');
-        if (CONTACT_JVERSION == 30)
-        {
-            $doc->addScript(JUri::root() . 'modules/mod_zt_contact_pro/assets/js/fieldtype30.js');
-        }
         $doc->addStyleSheet(JUri::root() . 'modules/mod_zt_contact_pro/assets/css/adminformcss.css');
         $ajax = JURI::root() . "modules/mod_zt_contact_pro/elements/ajax.php";
         $options = array();
