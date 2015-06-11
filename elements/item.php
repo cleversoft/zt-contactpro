@@ -168,7 +168,7 @@ class JFormFieldItem extends JFormField
             $html .='</td>
 										<td class="ps" align="left" width="55%"><a class="btn active btn-success" href="javascript:ztcontact.addField();">Add Field</a>
 										';
-            $html .= '| <a id="deletepro' . $i . '" class="btn active btn-danger" href="javascript:deleteFieldtype(' . $i . ')">Delete Field</a> ';
+            $html .= '| <a id="deletepro' . $i . '" class="btn active btn-danger" href="javascript:void(null);" onclick="ztcontact.deleteField(this)">Delete Field</a> ';
 
             if ($xml->elementList->param[$i]->type != 'textfield' && $xml->elementList->param[$i]->type != 'textarea' && $xml->elementList->param[$i]->type != 'text')
             {
