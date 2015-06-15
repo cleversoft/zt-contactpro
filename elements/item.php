@@ -164,7 +164,7 @@ class JFormFieldItem extends JFormField
 									<tr>
 										<td width="10%">Field Type</td>
 										<td align="left" width="35%">';
-            $html .=@JHTML::_('select.genericlist', $options, '' . $control_name . '[type]', 'onchange="changeElement(' . $i . ', value);"', 'value', 'text', $checkproperty, $control_name);
+            $html .=@JHTML::_('select.genericlist', $options, '' . $control_name . '[type]', 'onchange="ztcontact.changeElement(this);"', 'value', 'text', $checkproperty, $control_name);
             $html .='</td>
 										<td class="ps" align="left" width="55%"><a class="btn active btn-success" href="javascript:ztcontact.addField();">Add Field</a>
 										';
@@ -172,10 +172,10 @@ class JFormFieldItem extends JFormField
 
             if ($xml->elementList->param[$i]->type != 'textfield' && $xml->elementList->param[$i]->type != 'textarea' && $xml->elementList->param[$i]->type != 'text')
             {
-                $html .= '| <a id="newpro' . $i . '" class="btn active btn-success" href="javascript:newValue(' . $i . ');">New value</a>';
+                $html .= '| <a id="zt-contact-newpro" class="btn active btn-success" href="javascript:newValue(' . $i . ');">New value</a>';
             } else
             {
-                $html .= '<a class="btn active btn-success" style="opacity: 0;" id="newpro' . $i . '" href="javascript:newValue(' . $i . ');">| New value</a>';
+                $html .= '<a class="btn active btn-success" style="opacity: 0;" id="zt-contact-newpro" href="javascript:newValue(' . $i . ');">| New value</a>';
             }
             $html .= '</td>
 									</tr>';
@@ -205,7 +205,7 @@ class JFormFieldItem extends JFormField
                 }
             }
             $html .='</thead>
-								<tbody id="jvelement' . $i . '">';
+								<tbody id="zt-contact-jvelement">';
             if ($checkproperty != 'text')
             {
                 $html .= '<tr id="fieldType_tr_' . $i . '">
