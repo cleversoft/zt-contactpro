@@ -63,6 +63,14 @@
                 var name = $(this).attr('name');
                 $(this).attr('name', 'element[' + curField + name.substr(name.indexOf(']')));
             });
+            $newField.find('[id^="jform_params_element"]').each(function(){
+                var id = $(this).attr('id');
+                $(this).attr('id', 'jform_params_element' + curField + id.substr(id.indexOf('required')));
+            });
+            $newField.find('[for^="jform_params_element"]').each(function(){
+                var forAttr = $(this).attr('for');
+                $(this).attr('for', 'jform_params_element' + curField + forAttr.substr(forAttr.indexOf('required')));
+            });
             $newField.find('.chzn-container').remove();
             $newField.find('.chzn-done').removeClass('chzn-done').css('display', 'block');
             $newField.find('select[name*="][type]"]').chosen();
@@ -73,6 +81,22 @@
                     .attr('data-order', curField);
             $newField.css('display', 'none');
             $newField.appendTo($('#jvmaincontact'));
+            /* Rebin event handler for joomla radio button */
+            var $recentField = $('#jvmaincontact').children().last();
+            $recentField.find('label[for$="required0"]').on('click', function(){
+                var $parent = $(this).closest('fieldset');
+                $parent.find('input[type="radio"]').removeAttr('checked');
+                $parent.find('input[id$="required0"]').attr('checked', true);
+                $parent.find('label[for$="required1"]').removeClass('btn-danger').removeClass('active');
+                $parent.find('label[for$="required0"]').addClass('btn-success').addClass('active');
+            });
+            $recentField.find('label[for$="required1"]').on('click', function(){
+                var $parent = $(this).closest('fieldset');
+                $parent.find('input[type="radio"]').removeAttr('checked');
+                $parent.find('input[id$="required1"]').attr('checked', true);
+                $parent.find('label[for$="required0"]').removeClass('btn-success').removeClass('active');
+                $parent.find('label[for$="required1"]').addClass('btn-danger').addClass('active');
+            });
             this._updateHiddenInput();
             $('#jvmaincontact')
                     .children()
