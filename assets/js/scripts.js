@@ -101,9 +101,9 @@
         changeElement: function (thisPtr) {
             /* Find element container */
             var $container = $(thisPtr).closest('table');
-            var $jvelement = $container.find('#zt-contact-jvelement');
-            var $newProperty = $container.find('#zt-contact-newpro');
-            var elementOrder = $container.find('#zt-contact-order').data('order');
+            var $jvelement = $container.find('tbody#zt-contact-jvelement');
+            var $newProperty = $container.find('a#zt-contact-newpro');
+            var elementOrder = $container.find('input#zt-contact-order').data('order');
             var fieldType = $(thisPtr).val();
             switch (fieldType) {
                 case 'textfield':
