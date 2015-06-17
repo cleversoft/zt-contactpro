@@ -124,7 +124,7 @@
          */
         changeElement: function (thisPtr) {
             /* Find element container */
-            var $container = $(thisPtr).closest('table');
+            var $container = $(thisPtr).closest('div.sortable-item');
             var $jvelement = $container.find('tbody#zt-contact-jvelement');
             var $newProperty = $container.find('a#zt-contact-newpro');
             var elementOrder = $container.find('input#zt-contact-order').data('order');
