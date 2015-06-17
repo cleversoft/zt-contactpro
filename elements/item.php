@@ -172,10 +172,10 @@ class JFormFieldItem extends JFormField
 
             if ($xml->elementList->param[$i]->type != 'textfield' && $xml->elementList->param[$i]->type != 'textarea' && $xml->elementList->param[$i]->type != 'text')
             {
-                $html .= '| <a id="zt-contact-newpro" class="btn active btn-success" href="javascript:newValue(' . $i . ');">New value</a>';
+                $html .= ' | <a id="zt-contact-newpro" class="btn active btn-success" href="javascript:void(null);" onclick="ztcontact.addProperty(this);">New value</a>';
             } else
             {
-                $html .= '<a class="btn active btn-success" style="opacity: 0;" id="zt-contact-newpro" href="javascript:newValue(' . $i . ');">| New value</a>';
+                $html .= ' | <a id="zt-contact-newpro" style="display:none;" class="btn active btn-success" href="javascript:void(null);" onclick="ztcontact.addProperty(this);">New value</a>';
             }
             $html .= '</td>
 									</tr>';
@@ -269,7 +269,7 @@ class JFormFieldItem extends JFormField
 											<input type="text" size="25" value="' . $value . '" name="' . $control_name . '[value][]">';
                 if ($i > 0)
                 {
-                    $html .= '<a class="delete" href="javascript:deleteProperty(' . $i . ', \'' . $i . '_' . $j . '\');">X</a>';
+                    $html .= '<a class="delete" href="javascript:void(null);" onclick="ztcontact.deleteProperty(this);">X</a>';
                 }
                 $html .= '</td>
 								    </tr>';

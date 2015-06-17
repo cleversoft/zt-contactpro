@@ -75,6 +75,7 @@
             $newField.find('.chzn-done').removeClass('chzn-done').css('display', 'block');
             $newField.find('select[name*="][type]"]').chosen();
             $newField.find('.chzn-container').css('width', '220px');
+            $newField.find('input[type="text"]').val("");
             $newField.find('input#zt-contact-order')
                     .val(curField)
                     .data('order', curField)
@@ -116,6 +117,25 @@
             });
             this._updateHiddenInput();
             this._sortable();
+        },
+        /**
+         * Delete property
+         * @param {type} thisPtr
+         * @returns {undefined}
+         */
+        deleteProperty: function(thisPtr){
+            $(thisPtr).closest('tr[id^="fieldType"]').remove();
+        },
+        /**
+         * Add new property
+         * @param {type} thisPtr
+         * @returns {undefined}
+         */
+        addProperty: function(thisPtr){
+            var $container = $(thisPtr).closest('div.sortable-item');
+            var elementOrder = $container.find('input#zt-contact-order').data('order');
+            var html = '<tr id="fieldType_tr_' + elementOrder + '"><td align="left" style="width: 10%;">Value</td><td align="left" colspan="2"><input type="text" size="30" value="" name="element['+ elementOrder +'][value][]"><a class="delete" href="javascript:void(null);" onclick="ztcontact.deleteProperty(this);">X</a></td></tr>';
+            $container.find('table>tbody').append(html);
         },
         /**
          * Change element type
@@ -178,7 +198,7 @@
                             "<td align='left' style='width: 10%;'>Value</td>" +
                             "<td align='left' colspan='2'>" +
                             "<input type='text' size='30' value='' name='element[" + elementOrder + "][value][]'>" +
-                            "<a href='javascript:deleteProperty();'>X</a>" +
+                            "<a class='delete' href='javascript:void(null);' onclick='ztcontact.deleteProperty(this);'>X</a>" +
                             "</td>" +
                             "</tr>");
                     break;
@@ -193,7 +213,7 @@
                             "<td align='left' style='width: 10%;'>Value</td>" +
                             "<td align='left' colspan='2'>" +
                             "<input type='text' size='30' value='' name='element[" + elementOrder + "][value][]'>" +
-                            "<a href='javascript:deleteProperty();'>X</a>" +
+                            "<a class='delete' href='javascript:void(null);' onclick='ztcontact.deleteProperty(this);'>X</a>" +
                             "</td>" +
                             "</tr>");
                     break;
@@ -218,7 +238,7 @@
                             "<td align='left' style='width: 10%;'>Value</td>" +
                             "<td align='left' colspan='2'>" +
                             "<input type='text' size='30' value='' name='element[" + elementOrder + "][value][]'>" +
-                            "<a href='javascript:deleteProperty();'>X</a>" +
+                            "<a class='delete' href='javascript:void(null);' onclick='ztcontact.deleteProperty(this);'>X</a>" +
                             "</td>" +
                             "</tr>");
                     break;
