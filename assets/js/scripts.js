@@ -151,7 +151,7 @@
             var fieldType = $(thisPtr).val();
             switch (fieldType) {
                 case 'textfield':
-                    $newProperty.css('display', 'none');
+                    $newProperty.hide();
                     $jvelement.html("<tr>" +
                             "<td width='15%'>Field name</td>" +
                             "<td colspan='2'><input type='text' name='element[" + elementOrder + "][fieldname]' size='30' value=''/></td>" +
@@ -166,7 +166,7 @@
                             "</tr>");
                     break;
                 case 'textarea':
-                    $newProperty.css('display', 'none');
+                    $newProperty.hide();
                     $jvelement.html("<tr>" +
                             "<td width='15%'>Field name</td>" +
                             "<td colspan='2'><input type='text' name='element[" + elementOrder + "][fieldname]' value='' size='30' /></td>" +
@@ -181,7 +181,7 @@
                             "</tr>");
                     break;
                 case 'selected':
-                    $newProperty.css('display', 'block');
+                    $newProperty.show();
                     $jvelement.html("<tr id='fieldType_tr_" + elementOrder + "'>" +
                             "<td align='left' style='width: 14%;'>Field name</td>" +
                             "<td align='left' colspan='2' style='width: 80%;'><input type='text' value='' size='30' name='element[" + elementOrder + "][fieldname]'></td>" +
@@ -204,7 +204,7 @@
                     break;
                 case 'checkbox':
                 case 'radio':
-                    $newProperty.css('display', 'block');
+                    $newProperty.show();
                     $jvelement.html("<tr id='fieldType_tr_" + elementOrder + "'>" +
                             "<td align='left' style='width: 14%;'>Field name</td>" +
                             "<td align='left' colspan='2' style='width: 80%;'><input type='text' value='' size='30' name='element[" + elementOrder + "][fieldname]'></td>" +
@@ -218,7 +218,7 @@
                             "</tr>");
                     break;
                 case 'text':
-                    $newProperty.css('display', 'none');
+                    $newProperty.hide();
                     $jvelement.html("<tr id='fieldType_tr_" + elementOrder + "_0'>" +
                             "<td align='left' style='width: 15%;'>Text</td>" +
                             "<td align='left' colspan='2'>" +
@@ -227,7 +227,7 @@
                             "</tr>");
                     break;
                 default:
-                    $newProperty.css('display', 'block');
+                    $newProperty.show();
                     $jvelement.html("<tr id='fieldType_tr_" + elementOrder + "'>" +
                             "<td align='left' style='width: 14%;'>Field name</td>" +
                             "<td align='left' colspan='2' style='width: 80%;'>" +
