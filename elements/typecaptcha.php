@@ -1,8 +1,8 @@
 <?php
 /**
- * @package ZT Contact pro module for Joomla!
+ * @package ZT Contact Pro module for Joomla!
  * @author http://www.zootemplate.com
- * @copyright (C) 2013- ZooTemplate.Com
+ * @copyright (C) 2015- ZooTemplate.Com
  * @license PHP files are GNU/GPL
  * */
 defined('JPATH_BASE') or die();

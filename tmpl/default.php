@@ -1,8 +1,8 @@
 <?php
 /**
- * @package ZT Contact pro module for Joomla 
+ * @package ZT Contact Pro module for Joomla!
  * @author http://www.zootemplate.com
- * @copyright (C) 2010- ZooTemplate.Com
+ * @copyright (C) 2015- ZooTemplate.Com
  * @license PHP files are GNU/GPL
  * */
 defined('_JEXEC') or die('Restricted access');
@@ -28,7 +28,6 @@ $error = Null;
         lang: "en"
     };
 </script>
-<div style="display: none;"><a href="http://www.joomvision.com" title="Joomla Templates">Joomla Templates</a> and Joomla Extensions by JoomVision.Com</div>
 <div id="zt_contact_pro_<?php echo $module_id; ?>" class="jvformcontact<?php echo $params->get('moduleclass_sfx') ?>">
     <form id='myForm' class="myForm" action="index.php" method="post">
         <div id="vehicles_list"></div>

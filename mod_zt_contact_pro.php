@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @package ZT Contact Pro module for Joomla! 2.5
+ * @package ZT Contact Pro module for Joomla!
  * @author http://www.zootemplate.com
- * @copyright (C) 2010- ZooTemplate.Com
+ * @copyright (C) 2015- ZooTemplate.Com
  * @license PHP files are GNU/GPL
  * */
 defined('_JEXEC') or die('Restricted access');
