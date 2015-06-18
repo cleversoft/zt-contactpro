@@ -15,29 +15,6 @@ class JFormFieldItem extends JFormField
 
     protected $type = 'Item';
     
-    /**
-     * Load mootools framework
-     */
-    private function _loadMooTools(){
-        $doc = JFactory::getDocument();
-        $mootoolsCoreLoaded = false;
-        $mootoolsMoreLoaded = false;
-        foreach($doc->_scripts as $key => $value){
-            if(basename($key) == 'mootools-core.js'){
-                $mootoolsCoreLoaded = true;
-            }
-            if(basename($key) == 'mootools-more.js'){
-                $mootoolsMoreLoaded = true;
-            }            
-        } 
-        if(!$mootoolsCoreLoaded){
-            $doc->addScript(JUri::root() . 'media/system/js/mootools-core.js');
-        }
-        if(!$mootoolsMoreLoaded){
-            $doc->addScript(JUri::root() . 'media/system/js/mootools-more.js');
-        }    
-    }
-    
     protected function getInput()
     {
         if (version_compare(JVERSION, '3.0', 'ge'))
