@@ -41,6 +41,7 @@ if (is_dir($base_folder . DS . 'libraries' . DS . 'joomla'))
 
         public function sendMail()
         {
+            $jinput = JFactory::getApplication()->input;
             global $mainframe;
             jimport('joomla.mail.helper');
             $db = JFactory::getDBO();
@@ -99,11 +100,31 @@ if (is_dir($base_folder . DS . 'libraries' . DS . 'joomla'))
             if ($return !== true)
             {
                 $response['status'] = 'unsucess';
-                $response['message'] = $unsuccess;
+                if($jinput->get('email', false, 'STRING') && $jinput->get('message', false, 'STRING')){
+                    $html = '<div class="alert alert-danger" role="alert">';
+                    $html .= '<div>';
+                    $html .= '<strong>' . $jinput->get('email', false, 'STRING') . ':</strong><br/>';
+                    $html .= '<p>' . $jinput->get('message', false, 'STRING') . '</p><i style="font-size: 9pt;"> * ' . $unsuccess . '</i>';
+                    $html .= '</div>';
+                    $html .= '</div>';
+                    $response['message'] = $html;
+                }else{
+                    $response['message'] = $unsuccess;
+                }                
             } else
             {
                 $response['status'] = 'success';
-                $response['message'] = $success;
+                if($jinput->get('email', false, 'STRING') && $jinput->get('message', false, 'STRING')){
+                    $html = '<div class="alert alert-success" role="alert">';
+                    $html .= '<div>';
+                    $html .= '<strong>' . $jinput->get('email', false, 'STRING') . ':</strong><br/>';
+                    $html .= '<p>' . $jinput->get('message', false, 'STRING') . '</p><i style="font-size: 9pt;"> * ' . $success . '</i>';
+                    $html .= '</div>';
+                    $html .= '</div>';
+                    $response['message'] = $html;
+                }else{
+                    $response['message'] = $success;
+                }
             }
             echo json_encode($response);
             return true;
