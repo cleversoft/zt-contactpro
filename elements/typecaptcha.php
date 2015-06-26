@@ -51,58 +51,36 @@ class JFormFieldTypecaptcha extends JFormFieldList
         $text = "Recaptcha";
         $options[] = JHTML::_('select.option', $val, JText::_($text));
         ?>
-
         <script type="text/javascript">
-            jQuery(window).on('load', function () {
-        <?php
-        if (CONTACT_JVERSION == 30)
-        {
-            ?>
-                    var Recaptcha = jQuery('#jform_params_recapcha').parent().parent();
-                    for (i = 0; i <= 2; i++) {
-                        Recaptcha.addClass('recaptcha');
-                        Recaptcha = Recaptcha.next();
+            jQuery(document).ready(function(){
+                var $fields = jQuery('#jform_params_recapcha').closest('#attrib-captcha').find('.control-group');
+                $fields.each(function(){
+                    var index = jQuery(this).index();
+                    if(index > 1 && index < 5){
+                        jQuery(this).addClass('zt-contact-recaptcha');
                     }
-                    var Captcha = jQuery('jform_params_captcha').parent().parent();
-                    for (i = 0; i <= 8; i++) {
-                        Captcha.addClass('captcha');
-                        Captcha = Captcha.next();
+                    if(index > 4){
+                        jQuery(this).addClass('zt-contact-mathcaptcha');
                     }
-        <?php } ?>
-                var zt_recaptcha = jQuery('.recaptcha');
-                var zt_captcha = jQuery('.captcha');
-                var layout = "<?php echo $layoutStyle; ?>";
-                var selectStyle = function (style) {
-                    switch (style) {
-                        case "recaptcha":
-                            zt_recaptcha.each(function (item) {
-                                jQuery(item).css('display', '');
-                            });
-                            zt_captcha.each(function (item) {
-                                jQuery(item).css('display', 'none');
-                            });
-                            break;
-                        case "captcha":
-                            zt_recaptcha.each(function (item) {
-                                jQuery(item).css('display', 'none');
-                            });
-                            zt_captcha.each(function (item) {
-                                jQuery(item).css('display', '');
-                            });
-                            break;
+                });
+                jQuery('#jform_params_typecaptcha').chosen().change(function(){
+                    if(jQuery(this).val() === 'recaptcha'){
+                        jQuery('.zt-contact-recaptcha').show('slow');
+                        jQuery('.zt-contact-mathcaptcha').hide('slow');
                     }
-                    ;
+                    else{
+                        jQuery('.zt-contact-recaptcha').hide('slow');
+                        jQuery('.zt-contact-mathcaptcha').show('slow');
+                    }
+                });
+                if(jQuery('#jform_params_typecaptcha').val() === 'recaptcha'){
+                    jQuery('.zt-contact-recaptcha').show('slow');
+                    jQuery('.zt-contact-mathcaptcha').hide('slow');
                 }
-                selectStyle(layout);
-        <?php
-        if (CONTACT_JVERSION == 30)
-        {
-            ?>
-                    jQuery('#jform_params_typecaptcha').change('change', function () {
-                        selectStyle(this.value);
-                    });
-        <?php }
-        ?>
+                else{
+                    jQuery('.zt-contact-recaptcha').hide('slow');
+                    jQuery('.zt-contact-mathcaptcha').show('slow');
+                }
             });
         </script>
         <?php
