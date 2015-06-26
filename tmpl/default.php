@@ -203,6 +203,8 @@ $error = Null;
         </div>
         <input type="hidden" name="redirect" id="redirect" value="<?php echo $urlRedirect; ?>"/>
     </form>
+    <div style="clear: both;"></div>
+    <div id="zt-contact-pro-message"></div>
 </div>
 <script type="text/javascript">
     jQuery.noConflict();
@@ -227,7 +229,10 @@ $error = Null;
                             }
                         } else {
                             log.remove();
-                            mainform.html(data.message);
+                            $('#zt-contact-pro-message').html(data.message);
+                            if(data.status === 'success'){
+                                $('#myForm').find('textarea, input[type="text"]').val('');
+                            }
                         }
                         checkurl = $('#redirect').val();
                         if (checkurl != '') {
