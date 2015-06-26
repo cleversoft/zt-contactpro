@@ -57,20 +57,22 @@ $error = Null;
                     <p>
                         <label><?php echo $item->fieldtitle . ' ' . $poin . ''; ?></label>
                         <?php
+                        $size = strtolower($item->size);
+                        $size = (substr($size, strlen($size) - 2, 2) === 'px')? $size: $size . 'px';
                         if ($item->fieldname == 'name')
                         {
                             ?>
-                            <input class="<?php echo $required; ?> form-control" type="text" value="<?php echo $username; ?>" title="<?php echo $item->fieldtitle; ?> Invalid" name="<?php echo $item->fieldname; ?>" size="<?php echo $item->size; ?>" maxlength="<?php echo $item->length; ?>" id="<?php echo $item->fieldname; ?>">
+                            <input class="<?php echo $required; ?> form-control" type="text" value="<?php echo $username; ?>" title="<?php echo $item->fieldtitle; ?> Invalid" name="<?php echo $item->fieldname; ?>" style="width: <?php echo ($size); ?>" maxlength="<?php echo $item->length; ?>" id="<?php echo $item->fieldname; ?>">
                             <?php
                         } else if ($item->fieldname == 'email')
                         {
                             ?>
-                            <input class="<?php echo $required; ?> form-control" type="text" value="<?php echo $useremail; ?>" title="<?php echo $item->fieldtitle; ?> Invalid" name="<?php echo $item->fieldname; ?>" size="<?php echo $item->size; ?>" maxlength="<?php echo $item->length; ?>" id="<?php echo $item->fieldname; ?>">
+                            <input class="<?php echo $required; ?> form-control" type="text" value="<?php echo $useremail; ?>" title="<?php echo $item->fieldtitle; ?> Invalid" name="<?php echo $item->fieldname; ?>" style="width: <?php echo ($size); ?>" maxlength="<?php echo $item->length; ?>" id="<?php echo $item->fieldname; ?>">
                             <?php
                         } else
                         {
                             ?>
-                            <input class="<?php echo $required; ?> form-control" type="text" value="" title="<?php echo $item->fieldtitle; ?> Invalid" name="<?php echo $item->fieldname; ?>" size="<?php echo $item->size; ?>" maxlength="<?php echo $item->length; ?>" id="<?php echo $item->fieldname; ?>">
+                            <input class="<?php echo $required; ?> form-control" type="text" value="" title="<?php echo $item->fieldtitle; ?> Invalid" name="<?php echo $item->fieldname; ?>" style="width: <?php echo ($size); ?>" maxlength="<?php echo $item->length; ?>" id="<?php echo $item->fieldname; ?>">
                         <?php } ?>
                     </p>
                     <?php
