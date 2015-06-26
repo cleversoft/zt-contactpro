@@ -269,6 +269,7 @@ class JFormFieldItem extends JFormField
         }
         $html .='
 				</div>
+                                <div style="height:50px;"></div>
 				 <input type="hidden" value="1" id="isNew" name="isNew">
 				 <input type="hidden" value="Field" name="js_lbl_type">
 				 <input type="hidden" value="Field Name" name="js_lbl_fieldname">
