@@ -33,14 +33,20 @@ class JFormFieldTypecaptcha extends JFormFieldList
         {
             $cId = JRequest::getVar('id');
         }
-        $query = $db->getQuery(true);
-        $query->select('m.params')
-                ->from('#__modules AS m')
-                ->where('m.id=' . $cId);
-        $db->setQuery($query);
-        $module = $db->loadObject();
+        if($cId){
+            $query = $db->getQuery(true);
+            $query->select('m.params')
+                    ->from('#__modules AS m')
+                    ->where('m.id=' . $cId);
+            $db->setQuery($query);
+            $module = $db->loadObject();
+        }
+        
         $params = new JRegistry();
-        $params->loadString($module->params);
+        if(isset($module)){
+            $params->loadString($module->params);
+        }
+
         $layoutStyle = $params->get('typecaptcha', 'recaptcha');
         //End get value of layout style
         $options = array();
