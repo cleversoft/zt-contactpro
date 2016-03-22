@@ -157,6 +157,17 @@ if (is_dir($base_folder . DS . 'libraries' . DS . 'joomla'))
             else
                 return $DecodedString;
         }
+        
+        protected function object_to_array($obj, $arr = array()) 
+        {
+
+            $arrObj = is_object($obj) ? get_object_vars($obj) : $obj;
+            foreach ($arrObj as $key => $val) {
+                    $val = (is_array($val) || is_object($val)) ? $this->object_to_array($val, $arr) : $val;
+                    $arr[$key] = $val;
+            }
+            return $arr;
+        }
 
         public function renderMailform($formmail, $moduleId)
         {
@@ -221,6 +232,7 @@ if (is_dir($base_folder . DS . 'libraries' . DS . 'joomla'))
                     $formmail = str_replace($order, $replace, $formmail);
                 }
             }
+            $values = $this->object_to_array($values);
             $formmail = @str_replace($placeholders, $values, $formmail);
             return $formmail;
         }
