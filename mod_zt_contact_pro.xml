@@ -7,7 +7,7 @@
     <license>GNU/GPL</license>	
     <authorEmail>joomla.cleversfot@gmail.com</authorEmail>
     <authorUrl>www.zootemplate.com</authorUrl>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <description>ZT_INSTALLATION</description>
     <files>
         <filename module="mod_zt_contact_pro">mod_zt_contact_pro.php</filename>
