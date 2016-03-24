@@ -92,6 +92,7 @@ if (is_dir($base_folder . DS . 'libraries' . DS . 'joomla'))
                 }
             }
             $mailform = $this->renderMailform($formmail, $this->moduleId);
+
             $from = JRequest::getVar('email');
 
             $return = JFactory::getMailer()->sendMail($from, '', $adminEmail, $subject, $mailform);
@@ -176,28 +177,37 @@ if (is_dir($base_folder . DS . 'libraries' . DS . 'joomla'))
             $file = 'contact' . $moduleId . '.xml';
             if (is_file($folder . DS . $file))
             {
-                $api_url = JURI::root() . 'assets/data/contact' . $moduleId . '.xml';
-                $xml = simplexml_load_file($api_url);
+                $str = file_get_contents($folder . DS . $file);
+                 $xml = simplexml_load_string($str,'SimpleXMLElement', LIBXML_NOCDATA);
             } else
             {
-                $api_url = JURI::root() . 'assets/data/contact.xml';
-                $xml = simplexml_load_file($api_url);
+                $str = file_get_contents($folder . DS . 'contact.xml');
+                $xml = simplexml_load_string($str,'SimpleXMLElement', LIBXML_NOCDATA);
             }
             $values = array();
             $placeholders = array();
             $form = array();
             $elementlist = count($xml->elementList->param);
+
             for ($i = 0; $i < $elementlist; $i++)
             {
                 $typename = $xml->elementList->param[$i]->fieldname;
                 $type = $xml->elementList->param[$i]->type;
-                $typetitle = $xml->elementList->param[$i]->fieldtitle;
                 $multi = $xml->elementList->param[$i]->multi;
+                $typetitle = $xml->elementList->param[$i]->fieldtitle;
+                $typetitle = (array) $typetitle;
+                if(isset($typetitle[0]))
+                    $typetitle = $typetitle[0];
+               
+               
+
                 //type name title
-                $form[] = JRequest::getVar('' . $typename . '');
-                if ($form[$i])
+                $form[] = JRequest::getVar('' . $typename . ''); 
+  
+                if ($form[$i]) 
                 {
                     $placeholders[] = '{' . $typename . ':title' . '}';
+                    
                     $values[] = isset($typename) ? $typetitle : '';
                     //type name value
                     $placeholders[] = '{' . $typename . ':value' . '}';
@@ -232,8 +242,10 @@ if (is_dir($base_folder . DS . 'libraries' . DS . 'joomla'))
                     $formmail = str_replace($order, $replace, $formmail);
                 }
             }
+           
             $values = $this->object_to_array($values);
             $formmail = @str_replace($placeholders, $values, $formmail);
+            
             return $formmail;
         }
 
