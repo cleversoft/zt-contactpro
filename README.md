@@ -3,7 +3,7 @@
 # Change Logs
 
 ### Update version 1.2.2 Released Jun 23, 2016
-* Php warming define version
+* php warming define version
 
 ### Update version 1.2.1
 * fixed error when create new module
