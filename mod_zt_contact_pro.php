@@ -11,7 +11,7 @@ require_once __DIR__ . '/helper.php';
 global $module_id;
 if (version_compare(JVERSION, '3.0', 'ge'))
 {
-    define('CONTACT_JVERSION', '30');
+    if(!defined('CONTACT_JVERSION')) define('CONTACT_JVERSION', '30');
 }
 $session =  JFactory::getSession();
 $module_id = $module->id;
