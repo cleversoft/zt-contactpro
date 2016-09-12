@@ -29,8 +29,8 @@ $error = Null;
     };
 </script>
 <div id="zt_contact_pro_<?php echo $module_id; ?>" class="jvformcontact<?php echo $params->get('moduleclass_sfx') ?>">
-    <form id='myForm' class="myForm" action="index.php" method="post">
-        <div id="vehicles_list"></div>
+    <form id='myForm<?php echo $module_id; ?>' class="myForm" action="index.php" method="post">
+        <div id="vehicles_list<?php echo $module_id; ?>"></div>
         <div class="main-success">
             <?php
             $i = 0;
@@ -200,23 +200,23 @@ $error = Null;
                 <input type="submit" class="button" value="<?php echo JText::_('Submit'); ?>" class="submit" />
             </p>
             <input type="hidden" name="module_id" value="<?php echo $module_id; ?>"/>
-            <input type="hidden" name="valid" id="valid" value=""/>
-            <input type="hidden" id="check" value="<?php echo $displayrecapcha; ?>" />
+            <input type="hidden" name="valid" id="valid<?php echo $module_id; ?>" value=""/>
+            <input type="hidden" id="check<?php echo $module_id; ?>" value="<?php echo $displayrecapcha; ?>" />
         </div>
-        <input type="hidden" name="redirect" id="redirect" value="<?php echo $urlRedirect; ?>"/>
+        <input type="hidden" name="redirect" id="redirect<?php echo $module_id; ?>" value="<?php echo $urlRedirect; ?>"/>
     </form>
     <div style="clear: both;"></div>
-    <div id="zt-contact-pro-message"></div>
+    <div id="zt-contact-pro-message<?php echo $module_id; ?>"></div>
 </div>
 <script type="text/javascript">
     jQuery.noConflict();
     jQuery(function ($) {
-        var v = $("#myForm").validate({
+        var v = $("#myForm<?php echo $module_id; ?>").validate({
             submitHandler: function (form) {
                 var mainform = $(".main-success");
-                var log = $('#vehicles_list').addClass('loading');
+                var log = $('#vehicles_list<?php echo $module_id; ?>').addClass('loading');
                 var url = '<?php echo JURI::root(); ?>modules/mod_zt_contact_pro/ajax.php';
-                var data = $('#myForm').serialize();
+                var data = $('#myForm<?php echo $module_id; ?>').serialize();
                 $.ajax({
                     url: url,
                     dataType: 'json',
@@ -226,17 +226,17 @@ $error = Null;
                         if (data.status == 'unsuccess') {
                             log.removeClass('loading');
                             log.html(data.message);
-                            if ($('#check').val() > 0) {
+                            if ($('#check<?php echo $module_id; ?>').val() > 0) {
                                 Recaptcha.reload();
                             }
                         } else {
                             log.remove();
-                            $('#zt-contact-pro-message').html(data.message);
+                            $('#zt-contact-pro-message<?php echo $module_id; ?>').html(data.message);
                             if(data.status === 'success'){
-                                $('#myForm').find('textarea, input[type="text"]').val('');
+                                $('#myForm#<?php echo $module_id; ?>').find('textarea, input[type="text"]').val('');
                             }
                         }
-                        checkurl = $('#redirect').val();
+                        checkurl = $('#redirect<?php echo $module_id; ?>').val();
                         if (checkurl != '') {
                             window.location = checkurl;
                         }
