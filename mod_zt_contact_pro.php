@@ -23,4 +23,4 @@ if ($session->get('cptch_str_key') == '' || $session->get('cptch_str_key_time') 
 
 $list = $helper->getList();
 $captcha = $helper->displayCaptcha();
-require(JModuleHelper::getLayoutPath('mod_zt_contact_pro'));
+require JModuleHelper::getLayoutPath('mod_zt_contact_pro',$params->get('layout', 'default'));
