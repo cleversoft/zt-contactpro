@@ -2,6 +2,9 @@
 
 # Change Logs
 
+### Update version 1.2.4 Released Jun 14, 2017
+* Fix language error display in backend
+
 ### Update version 1.2.2 Released Jun 23, 2016
 * php warming define version
 

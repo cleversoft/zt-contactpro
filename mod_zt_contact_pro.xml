@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="1.6.0" client="site" method="upgrade">
+<extension type="module" version="3.7.2" client="site" method="upgrade">
     <name>ZT Contact Pro</name>
     <author>ZooTemplate.Com</author>
-    <creationDate>Jun 23, 2016</creationDate>
-    <copyright>Copyright (C) 2008 - 2015 http://www.zootemplate.com. All rights reserved.</copyright>
+    <creationDate>June 12, 2017</creationDate>
+    <copyright>Copyright (C) 2008 - 2017 http://www.zootemplate.com. All rights reserved.</copyright>
     <license>GNU/GPL</license>	
     <authorEmail>joomla.cleversfot@gmail.com</authorEmail>
     <authorUrl>www.zootemplate.com</authorUrl>
-    <version>1.2.1</version>
-    <description>ZT_INSTALLATION</description>
+    <version>1.2.4</version>
+    <description>ZT_CONTACT_PRO_INSTALLATION</description>
     <files>
         <filename module="mod_zt_contact_pro">mod_zt_contact_pro.php</filename>
         <filename>index.html</filename>
@@ -19,7 +19,8 @@
         <folder>tmpl</folder>
     </files>
     <languages folder="language">
-        <language tag="en-GB">en-GB.mod_zt_contact_pro.ini</language>
+        <language tag="en-GB">en-GB/en-GB.mod_zt_contact_pro.ini</language>
+        <language tag="en-GB">en-GB/en-GB.mod_zt_contact_pro.sys.ini</language>
     </languages>  
     <config addfieldpath="/modules/mod_zt_contact_pro/elements/">
         <fields name="params">
@@ -72,8 +73,7 @@
                 </field>
 
             </fieldset>
-            <fieldset name="advanced">
-			
+            <fieldset name="advanced">			
                 <field
                     name="layout"
                     type="modulelayout"
