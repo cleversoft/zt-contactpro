@@ -2,13 +2,13 @@
 <extension type="module" version="3.7.2" client="site" method="upgrade">
     <name>ZT Contact Pro</name>
     <author>ZooTemplate.Com</author>
-    <creationDate>June 12, 2017</creationDate>
+    <creationDate>Feb 12, 2018</creationDate>
     <copyright>Copyright (C) 2008 - 2017 http://www.zootemplate.com. All rights reserved.</copyright>
     <license>GNU/GPL</license>	
     <authorEmail>joomla.cleversfot@gmail.com</authorEmail>
     <authorUrl>www.zootemplate.com</authorUrl>
-    <version>1.2.4</version>
-    <description>ZT_CONTACT_PRO_INSTALLATION</description>
+    <version>1.2.5</version>
+    <description>ZT Contact Pro Module</description>
     <files>
         <filename module="mod_zt_contact_pro">mod_zt_contact_pro.php</filename>
         <filename>index.html</filename>
@@ -32,10 +32,10 @@
                 <field name="redirect" type="text" size="60" default="" label="Thank you page url" description="REDIRECTURL"/>
                 <field name="formmail" type="textarea" rows="15" cols="60" default="{name:title}:{name:value}\n{email:title}:{email:value}\n{address:title}:{address:value}\n{message:title}:{message:value}" label="Form Mail" description="FORMMAIL" />
             </fieldset>
-            <fieldset name="FORM_FIELD">
+            <fieldset name="FORM_FIELD" label="Form Field">
                 <field name="item" type="item" default="" label="Add items" description="ADDITEM" />
             </fieldset>
-            <fieldset name="captcha">
+            <fieldset name="captcha" label="Captcha">
                 <field name="typecaptcha" type="typecaptcha" default="" label="Type Captcha" description="TYPECAPTCHA" />
 
                 <field name="recapcha" type="radio" class="btn-group btn-group-yesno" default="1" label="Display Recapcha" description="DISPLAYRECAPCHA">
