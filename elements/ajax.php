@@ -19,8 +19,7 @@ if (is_dir($base_folder . DS . 'libraries' . DS . 'joomla'))
     define('JPATH_BASE', implode(DS, $rootFolder));
     require_once ( JPATH_BASE . DS . 'includes' . DS . 'defines.php' );
     require_once ( JPATH_BASE . DS . 'includes' . DS . 'framework.php' );
-    require_once(JPATH_BASE . DS . 'libraries/joomla/factory.php');
-    $app = JFactory::getApplication('site');
+    $app = \Joomla\CMS\factory::getApplication('site');
     $app->initialise();
     jimport('joomla.filesystem.file');
     jimport('joomla.filesystem.folder');
